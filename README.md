@@ -6,7 +6,7 @@ _Modeling clickstream dynamics with Wasserstein drift–diffusion on graphs_
 
 ---
 
-## ✨ Highlights
+##  Highlights
 - **Real data:** Retailrocket RecSys dataset (click/cart/purchase events).
 - **Graph view:** items = nodes; within-session item→item transitions = directed edges.
 - **Matrices:** counts `C`, row-stochastic `P`, exposure times `T`, CTMC generator `Q` (and reversible `Q_rev`), time-bucketed distributions `p_time`, rolling potential `V_time`.
@@ -17,7 +17,7 @@ _Modeling clickstream dynamics with Wasserstein drift–diffusion on graphs_
 
 ---
 
-## 🗂 Project structure
+##  Project structure
 noisy-preference-flows/
 ├─ notebooks/
 │ ├─ 01_data_wrangling.ipynb
