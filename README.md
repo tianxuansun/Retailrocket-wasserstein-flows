@@ -2,7 +2,7 @@
 # Noisy Preference Flows
 _Modeling clickstream dynamics with Wasserstein drift–diffusion on graphs_
 
-**tl;dr** We build a continuous-time, geometry-aware model of how *user attention mass* moves between items in real e-commerce sessions. Using the Retailrocket dataset, we estimate a reversible CTMC over items, define a free energy with a popularity-based potential, and compare **deterministic gradient flow** vs a **stochastic (fluctuation) model** for short-horizon distribution prediction. We also provide clear graph + matrix visualizations to make the dynamics tangible.
+We build a continuous-time, geometry-aware model of how *user attention mass* moves between items in real e-commerce sessions. Using the Retailrocket dataset, we estimate a reversible CTMC over items, define a free energy with a popularity-based potential, and compare **deterministic gradient flow** vs a **stochastic (fluctuation) model** for short-horizon distribution prediction. We also provide clear graph + matrix visualizations to make the dynamics tangible.
 
 ---
 
