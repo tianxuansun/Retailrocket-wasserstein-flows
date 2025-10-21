@@ -18,4 +18,22 @@ _Modeling clickstream dynamics with Wasserstein drift–diffusion on graphs_
 ---
 
 ## 🗂 Project structure
-
+noisy-preference-flows/
+├─ notebooks/
+│ ├─ 01_data_wrangling.ipynb
+│ ├─ 02_graph_and_matrices.ipynb
+│ ├─ 03_visualizations.ipynb
+│ ├─ 04_models_and_metrics.ipynb
+│ └─ 05_stage_aware_extension.ipynb # optional (item,stage) nodes
+├─ src/
+│ ├─ io_utils.py
+│ ├─ sessionize.py
+│ ├─ build_graph.py
+│ ├─ ctmc.py
+│ ├─ potentials.py
+│ ├─ simulate.py # ODE/SDE predictors
+│ └─ eval.py
+├─ figures/ # exported plots for the README / report
+├─ requirements.txt
+├─ README.md
+└─ LICENSE
