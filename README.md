@@ -150,7 +150,6 @@ Define a **free energy functional**:
   - Example: \(V_i(t) \approx -\log(\text{recent frequency of item } i)\).
 
 ### 3.2 Deterministic Wasserstein drift
-
 We think of the dynamics as a **gradient flow of \(\mathcal F\)** under a Wasserstein-type geometry on the graph:
 
 \[
@@ -169,7 +168,6 @@ In practice:
   \]
   
   with a small time step and projection back to the simplex.
-
 This gives a **smooth**, interpretable evolution: attention flows along likely edges and towards attractive items.
 
 ### 3.3 Stochastic drift–diffusion (fluctuations)
