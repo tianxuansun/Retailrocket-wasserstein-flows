@@ -190,6 +190,8 @@ The deterministic part explains **trend**; the stochastic part explains **random
 
 ---
 
+
+
 ## 4. What we actually compute & compare
 
 For each time bucket \(t\) (e.g. daily):
@@ -219,6 +221,8 @@ We also look at:
 
 ---
 
+
+
 ## 5. Visualization
 
 The repo includes code/notebooks to produce:
@@ -241,6 +245,9 @@ These figures are designed to be **presentation-ready** to explain both:
 2. Why a drift–diffusion model is reasonable.
 
 ---
+
+See the uploaded visualization graphes in the repo
+
 
 ## 6. Stage-aware extension (optional)
 
