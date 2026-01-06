@@ -27,7 +27,7 @@ This is meant as a **matrix-computation-friendly**, theoretically grounded, and 
 
 ## 1. Problem motivation
 
-Most recommender work focuses on:
+Work focuses on:
 
 - **Next-item ranking for a specific user**, or
 - **Static similarity / embeddings** (MF, GNNs, etc.).
