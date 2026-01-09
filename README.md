@@ -2,6 +2,8 @@
 
 *Modeling noisy preference dynamics on item graphs with CTMC + Wasserstein drift–diffusion*
 
+This project models how aggregate user attention flows over an e-commerce catalog. From Retailrocket clickstreams we build an item→item graph, estimate a CTMC generator with exposure-aware rates, construct a reversible operator compatible with Wasserstein geometry, and compare deterministic vs stochastic drift–diffusion forecasts of next-day distributions. The repo includes data prep, sparse graph/matrix construction, EDA plots, forecasting code (CTMC / deterministic tilt / low-rank noisy), and evaluation via KL/TV with event-window analysis.
+
 This repo contains the code and experiments for a course project on **graph analysis + matrix computation** using the **Retailrocket** e-commerce dataset.
 
 **Core idea**
