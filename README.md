@@ -169,7 +169,7 @@ The notebooks produce presentation-ready figures:
 
 ---
 
-## 6) Stage-aware extension (optional)
+## 6) Stage-aware extension
 
 Primary run: **nodes = items**.
 Extension: **nodes = (item, stage)** with stage ∈ {view, addtocart, transaction}.
@@ -188,7 +188,7 @@ This treats `view(A)→addtocart(A)` as a genuine transition and enables **funne
   pip install numpy pandas scipy networkx pyvis matplotlib tqdm pyarrow
   ```
 
-### Colab workflow (recommended)
+### Colab workflow
 
 1. Mount Drive and set paths:
 
