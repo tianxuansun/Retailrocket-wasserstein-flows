@@ -1,0 +1,108 @@
+\section*{E2. Evaluation of the Recursive Fiedler Segmentation}
+
+\paragraph{Context (from E1).}
+In E1 I automated a recursive Fiedler segmentation for the digit-image graph.
+At each node in the recursion tree, I formed the normalized Laplacian
+\(L = I - D^{-1/2}AD^{-1/2}\), computed the Fiedler eigenpair
+\((\lambda_2,\mathbf{v}_2)\), sorted vertices by \(\mathbf{v}_2\), and cut at the
+zero crossing. A branch was terminated when any of the following held:
+(i) \(\lambda_2 \ge 0.25\) (no small cut),
+(ii) subgraph size \(\le 40\),
+(iii) depth \(\ge 10\),
+(iv) the zero crossing landed at the first/last position
+(\emph{border cut}, i.e., no meaningful bipartition), or
+(v) the subgraph contained any zero-degree vertex (after removing self loops).
+
+\subsection*{Data and setup}
+I used the HOG\(\,\to\,\)cosine \(k\)-NN digit graph with \(k=50\)
+(\(n=1010\) nodes) and the aligned training labels (digits 0--9).
+Running the E1 procedure on this graph produced \textbf{4} terminal clusters.
+
+\subsection*{Evaluation protocol}
+Because cluster IDs are arbitrary, I report two permutation-invariant, single
+numbers computed from the raw confusion matrix \(C\) (rows = true labels,
+columns = predicted clusters):
+
+\begin{itemize}
+  \item \textbf{Adjusted Rand Index (ARI)}.
+  \item \textbf{Normalized Mutual Information (NMI)}.
+\end{itemize}
+
+For itemized analysis per digit, I first computed a one-to-one mapping
+between clusters and digits (Hungarian matching on counts), then reported:
+\begin{itemize}
+  \item \textbf{Overall accuracy} after the mapping,
+  \item \textbf{Per-class precision, recall, and F1}.
+\end{itemize}
+
+\subsection*{Results}
+
+\paragraph{Single-score metrics (permutation-invariant).}
+\[
+\boxed{\text{ARI} = 0.170}
+\qquad
+\boxed{\text{NMI} = 0.574}
+\]
+
+\paragraph{Itemized metrics (after cluster\,\(\to\)\,digit matching).}
+Overall accuracy: \(\mathbf{0.302}\).
+Per-digit precision/recall/F1:
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+\hline
+Digit & Precision & Recall & F1 \\
+\hline
+0 & 0.144 & 1.0000 & 0.251 \\
+1 & 0.000 & 0.0000 & 0.000 \\
+2 & 0.981 & 1.0000 & 0.990 \\
+3 & 0.000 & 0.0000 & 0.000 \\
+4 & 0.500 & 1.0000 & 0.667 \\
+5 & 0.000 & 0.0000 & 0.000 \\
+6 & 0.000 & 0.0000 & 0.000 \\
+7 & 1.000 & 0.0198 & 0.0388 \\
+8 & 0.000 & 0.0000 & 0.000 \\
+9 & 0.000 & 0.0000 & 0.000 \\
+\hline
+\multicolumn{1}{r|}{Macro avg} & 0.262 & 0.302 & 0.195 \\
+\multicolumn{1}{r|}{Micro avg} & 0.302 & 0.302 & 0.302 \\
+\multicolumn{1}{r|}{Overall acc.} & \multicolumn{3}{c}{0.302} \\
+\hline
+\end{tabular}
+\end{center}
+
+A row-normalized confusion (recall by true digit) shows bright diagonal cells
+for a few digits (notably 0, 2, 4) and near-zero recall elsewhere, consistent
+with the table. (Figure omitted here for brevity.)
+
+\subsection*{Discussion}
+The evaluation indicates \textbf{under-segmentation} on this graph:
+only four clusters were produced, and several digits have zero recall after
+matching. During recursion I frequently observed ``Fiedler cut at border,''
+which means the sorted Fiedler vector crossed zero at the first/last index.
+This occurs when \(\lambda_2\) is not small, i.e., the subgraph is strongly
+interconnected and a meaningful bipartition is not supported. In such cases,
+the stopping rule from E1 correctly prevents over-cutting, but the consequence
+here is that many classes remain merged into a few coarse groups.
+
+\subsection*{Takeaways}
+\begin{itemize}
+  \item With the E1 decision rules applied to this digit graph, the algorithm
+        yielded \(\mathbf{4}\) clusters and the following scores:
+        \(\text{ARI}=0.170\), \(\text{NMI}=0.574\), accuracy \(=0.302\).
+  \item The qualitative and quantitative evidence agree: the result is
+        under-segmented (good recall for a few digits, near-zero for others).
+  \item The behavior is consistent with the role of the Fiedler value:
+        when \(\lambda_2\) is large, additional splitting is unwarranted,
+        and the recursion should—and does—terminate.
+\end{itemize}
+
+\paragraph{Note.}
+The goal of E2 is to measure and interpret the unsupervised segmentation
+against the ground truth. I therefore kept the segmentation procedure from E1
+unchanged and focused on reporting and explaining the observed performance.
+
+
+
+
+Now this is the next part of the problem, first explain what the problem wants and then gives a step by step in detailed on how to do these two problems, keep in mind 
